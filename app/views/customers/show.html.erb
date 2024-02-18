@@ -1,0 +1,17 @@
+<h1>Customer</h1>
+    <p>Name: <%= @customer.name %></p>
+    <p>List of items: </p>
+        <ul> <% @items.each do |item| %>
+            <li id="item-<%= item.id %>" > 
+                Item: <%= item.name %>
+                Price: <%= item.price %>
+                Supermarket: <%= item.supermarket.name %>
+            </li>
+            <% end %>
+        </ul>
+    <p>Add Item:</p>
+    <%= form_with url: "/customers/#{@customer.id}/items", method: :post, local: true do |form| %>
+        <%= form.label :item_id, "Item Id" %>
+        <%= form.text_field :item_id %>
+        <%= form.submit "Submit"%>
+    <% end %>
