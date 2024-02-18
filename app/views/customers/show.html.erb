@@ -8,3 +8,13 @@
   <p>Supermarket name: <%= item.supermarket_name%></p>
 <% end %>
 
+
+<h3>Add Item</h3>
+
+<%= form_with(url: "/customers/#{@customer.id}/items", method: :post) do |form| %>
+  <%= form.label :item_id %>
+  <%= form.number_field :item_id %>
+
+  <%= form.submit 'Submit' %>
+<% end %>
+
