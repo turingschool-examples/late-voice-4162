@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe "Customer Show" do
 
   describe 'Customer Show' do
-    it ' #US1 Displays a customers name and a list of its items including its price and name of supermarket that ot belongs to' do
+    it ' US#1 Displays a customers name and a list of its items including its price and name of supermarket that ot belongs to' do
      supermarket_1 = Supermarket.create!(name: "Walmart", location: " 1223 DRIVE" )
      supermarket_2 = Supermarket.create!(name: "Target", location: " 1456 BLVD" )
 
@@ -39,7 +39,7 @@ RSpec.describe "Customer Show" do
       # including the item's name, price, and the name of the supermarket that it belongs to.
     end
 
-    it '#US2 Adds an item to a customer' do
+    it 'US#2 Adds an item to a customer' do
       supermarket_1 = Supermarket.create!(name: "Walmart", location: " 1223 DRIVE" )
      supermarket_2 = Supermarket.create!(name: "Target", location: " 1456 BLVD" )
 
