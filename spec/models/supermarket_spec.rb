@@ -26,7 +26,7 @@ RSpec.describe Supermarket, type: :model do
     @customer_item_6 = CustomerItem.create!(customer_id: @customer_3.id, item_id: @item_4.id)
   end
 
-  describe 'Class Methods' do
+  describe 'Instance Methods' do
     describe '#unique_customers' do
       it 'returns only unique customers' do
         expect(@supermarket_1.unique_customers.count).to eq(3)
