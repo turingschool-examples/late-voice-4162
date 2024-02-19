@@ -1,0 +1,4 @@
+<h1>Clients Who Shopped at <%= @supermarket.name %></h1>
+<% @supermarket.list_customers.each do |customer| %>
+  <li><%= customer.name %></li>
+<% end %>
