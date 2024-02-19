@@ -10,3 +10,10 @@
     <li>Supermarket: <%= item.supermarket.name %></li>
 </ul>
 <% end %>
+
+<h3>Search for an item and add it to the customer:</h3>
+<%= form_with url: "/customers/#{@customer.id}", method: :post do |form| %>
+  <%= form.label :item_id, "item_id" %>
+  <%= form.text_field :item_id %>
+  <%= form.submit "Search and Add" %>
+<% end %>
