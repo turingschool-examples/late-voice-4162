@@ -27,5 +27,24 @@ RSpec.describe 'Customers Show Page', type: :feature do
         expect(page).to have_content(@super_1.name)
       end
     end
+    # Story 2
+    it "has a form to add a new item to a customer" do 
+      # When I visit a customer's show page,
+      visit "/customers/#{@cust_1.id}"
+      # Then I see a form to add an item to this customer.
+      expect(page).to have_content("Add Item")
+      # When I fill in a field with the id of an existing item,
+      fill_in("Item ID", with: 1)
+      # And I click submit,
+      click_button("Add Item")
+      # Then I am redirected back to the customer's show page, 
+      expect(current_path).to eq("/customers/#{@cust_1.id}")
+      # And I see the item now listed under this customer's items.
+      
+        expect(page).to have_content(@item_1.name)
+        expect(page).to have_content(@item_1.price)
+        expect(page).to have_content(@item_1.supermarket)
+      
+    end
   end
 end

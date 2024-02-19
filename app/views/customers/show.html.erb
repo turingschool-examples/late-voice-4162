@@ -6,5 +6,14 @@
       <li>
         <%= item.name%>, <%= item.price%>, <%= item.supermarket.name%>
       </li>
+    </div>
   <% end %>
 </ul>
+<h5>Add Item: </h5>
+<%= form_with model: @customer, local: true, data: {turbo: false}, url: "/customers/#{@customer.id}", method: :patch do |form|%>
+ 
+    <%= form.label :item_id, "Item ID" %>
+    <%= form.text_field :item_id %><br>
+    <%= form.submit "Add Item"%>
+
+<% end %>
