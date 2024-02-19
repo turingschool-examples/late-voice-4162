@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
     it { should have_many(:customers).through(:customer_items) }
   end
 
-  describe '.supermarket_name_by_item' do
+  describe '#supermarket_name_by_item' do
     it 'return the supermarket name based on the item passed' do
       supermarket = Supermarket.create!(name: "Whole Foods", location: "Decatur")
       item = Item.create!(name: "Eggs", price: 10, supermarket_id: supermarket.id)
@@ -16,7 +16,7 @@ RSpec.describe Item, type: :model do
     end
   end
 
-  describe '.total_times_sold' do
+  describe '#total_times_sold' do
     it 'returns the count of times an item was sold' do
       publix = Supermarket.create!(name: "Publix", location: "East Atlanta Village")
 
