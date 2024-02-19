@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "/customers/:id", to: "customers#show", as: :customer
+
+  post "/customer_items", to: "customer_items#create", as: :create_customer_item
 end
