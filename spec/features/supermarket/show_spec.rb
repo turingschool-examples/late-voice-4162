@@ -16,6 +16,7 @@ RSpec.describe "supermarket Show page" do
 
       visit "/supermarkets/#{publix.id}"
 
+      expect(page).to have_content("Publix")
       expect(page).to have_content("Recent Customers:")
       expect(page).to have_content("John Smith")
       expect(page).to have_content("Peter Jones")
