@@ -11,7 +11,7 @@
   <%= form_with url: "/customers/#{@customer.id}/add_item", method: :post, data: {turbo: false} do |f| %>
     <%= f.label :item_id %>
     <%= f.text_field :item_id %>
-    <%= f.submit "Submit", formmethod: :post %>
+    <%= f.submit "Submit" %>
   <% end %>
 </div>
 
