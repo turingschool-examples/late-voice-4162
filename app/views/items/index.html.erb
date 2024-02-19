@@ -1,0 +1,10 @@
+<h1>Items:</h1>
+
+<% @items.each do |item| %>
+  <section id="item-<%= item.id %>">
+    <p>Item Name: <%= item.name %></p>
+    <p>Item Price: <%= item.price %></p>
+    <p>Supermarket: <%= item.supermarket_name %></p>
+    <p>Customer Purchase Count: <%= item.customer_count %></p>
+  </section>
+<% end %>
