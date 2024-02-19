@@ -1,0 +1,23 @@
+<h1>Customer's Name: <%= @customer.name %></h1>
+
+<h2><%= @customer.name %>'s Items:</h2>
+<ul>
+  <% @customer.items.each do |item| %>
+    <section id="item-<%= item.id %>">
+      <li>Item: <%= item.name %></li>
+      <li>Price: $<%= item.price %></li>
+      <li>Supermarket: <%= item.supermarket.name %></li>
+      <br
+    </section>
+  <% end %>
+</ul>
+
+<div id="form">
+  <%= form_with url: create_customer_item_path, method: :post, data: { turbo: false } do |f| %> 
+    <%= f.hidden_field :customer_id, value: @customer.id %>
+    <%= f.label :item_id, "Add Item to #{@customer.name}'s Cart" %>
+    <%= f.number_field :item_id %>
+    <%= f.submit "Add To List" %>
+  <% end %>
+</div>
+
