@@ -18,7 +18,7 @@ RSpec.describe 'Items Index Page', type: :feature do
       @customer_item_3 = CustomerItem.create!(customer_id: @customer_2.id, item_id: @item_3.id)
       @customer_item_4 = CustomerItem.create!(customer_id: @customer_1.id, item_id: @item_3.id)
       @customer_item_5 = CustomerItem.create!(customer_id: @customer_3.id, item_id: @item_3.id)
-      @customer_item_6 = CustomerItem.create!(customer_id: @customer_13.id, item_id: @item_4.id)
+      @customer_item_6 = CustomerItem.create!(customer_id: @customer_3.id, item_id: @item_4.id)
 
       visit "/items"
     end
