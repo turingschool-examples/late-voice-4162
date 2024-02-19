@@ -19,7 +19,6 @@ RSpec.describe Item, type: :model do
   describe '.total_times_sold' do
     it 'returns the count of times an item was sold' do
       publix = Supermarket.create!(name: "Publix", location: "East Atlanta Village")
-      whole_foods = Supermarket.create!(name: "Whole Foods", location: "Decatur")
 
       john = Customer.create!(name: "John Smith")
       peter = Customer.create!(name: "Peter Jones")
