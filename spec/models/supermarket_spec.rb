@@ -5,7 +5,7 @@ RSpec.describe Supermarket, type: :model do
     it { should have_many :items }
   end
 
-  describe 'distinct_customers' do
+  describe '#distinct_customers' do
     it 'returns a list of unique customers that shopped at the supermarket' do
       publix = Supermarket.create!(name: "Publix", location: "East Atlanta Village")
 
