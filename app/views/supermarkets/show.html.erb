@@ -1,0 +1,6 @@
+<h1><%= @supermarket.name %></h1>
+
+<h3>Recent Customers:</h3>
+<% @supermarket.distinct_customers.each do |customer| %>
+   <h4><%= customer.name %></h4>
+<% end %>

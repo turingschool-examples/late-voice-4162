@@ -1,0 +1,17 @@
+<h1><%= @customer.name %>'s Cart</h1>
+
+<% @customer.items.each do |item| %></h3>
+   <div id="item-<%= item.id %>">
+      <h3>Item: <%= item.name %></h3>
+      <p>Price: $<%= item.price %>,00</p>
+      <p>Supermarket: <%= item.supermarket_name_by_item %></p>
+   </div>
+<% end %>
+
+<h3>Add Item to Cart:</h3>
+<%= form_with url: "/customers/#{@customer.id}/items", method: :post do |form| %>
+   <%= form.label :item_id %>
+   <%= form.number_field :item_id %>
+
+   <%= form.submit "Add Item" %>
+<% end %>
