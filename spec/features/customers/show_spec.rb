@@ -3,6 +3,7 @@ require "rails_helper"
 RSpec.describe "Customer Show Page", type: :feature do
   describe "As a visitor" do
     let!(:customer_1) {Customer.create!(name: "Susan")}
+    let!(:customer_2) {Customer.create!(name: "Anna")}
     let!(:supermarket_1) {Supermarket.create!(name: "Walmart", location: "E 53rd St.")}
     let!(:supermarket_2) {Supermarket.create!(name: "Target", location: "W 15th St.")}
     let!(:item_1) {supermarket_1.items.create!(name: "milk", price: 4)}
@@ -18,6 +19,7 @@ RSpec.describe "Customer Show Page", type: :feature do
 
     it "displays customer's name" do
       expect(page).to have_content("Susan")
+      expect(page).to_not have_content("Anna")
     end
 
     describe "customer item list" do

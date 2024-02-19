@@ -22,18 +22,27 @@ RSpec.describe "Items Index Page", type: :feature do
         expect(page).to have_content("milk")
         expect(page).to have_content("price: $4")
         expect(page).to have_content("supermarket: Walmart")
+
+        expect(page).to_not have_content("pizza")
+        expect(page).to_not have_content("cookies")
       end
 
       within "#item-#{item_2.id}" do
         expect(page).to have_content("cookies")
         expect(page).to have_content("price: $5")
         expect(page).to have_content("supermarket: Walmart")
+
+        expect(page).to_not have_content("bread")
+        expect(page).to_not have_content("pizza")
       end
 
       within "#item-#{item_3.id}" do
         expect(page).to have_content("pizza")
         expect(page).to have_content("price: $6")
         expect(page).to have_content("supermarket: Target")
+
+        expect(page).to_not have_content("bread")
+        expect(page).to_not have_content("cookies")
       end
     end
 
