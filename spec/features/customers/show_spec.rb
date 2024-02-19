@@ -71,6 +71,7 @@ RSpec.describe "Customers Show Page", type: :feature do
         expect(page).to have_content("$4")        
     end
 
+    # User Story 2
     it "redirects to the customer show page" do
         king_soopers = Supermarket.create!(name: "King Soopers", location: "Denver")
 
