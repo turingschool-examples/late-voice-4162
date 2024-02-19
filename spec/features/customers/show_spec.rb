@@ -68,10 +68,7 @@ RSpec.describe "Customers Show Page", type: :feature do
         click_button "Search and Add"
 
         expect(page).to have_content("cheese")
-        expect(page).to have_content("$4")
-        
-
-        
+        expect(page).to have_content("$4")        
     end
 
     it "redirects to the customer show page" do
@@ -89,6 +86,13 @@ RSpec.describe "Customers Show Page", type: :feature do
 
         visit "/customers/#{joe.id}"
 
+        fill_in "item_id", with: cheese.id
 
+        click_button "Search and Add"
+        
+        expect(current_path).to eq("/customers/#{joe.id}")
+        expect(page).not_to have_button("Search and Add")
+        expect(page).to have_content("cheese")
+        expect(page).to have_content("$4")        
     end
 end
