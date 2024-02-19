@@ -1,12 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe Supermarket, type: :model do
-  describe 'relationships' do
-    it { should have_many :items }
-  end
-
-  describe '#distinct_customers' do
-    it 'returns a list of unique customers that shopped at the supermarket' do
+RSpec.describe "supermarket Show page" do
+   it 'displays a unique list of all customers that have shopped at the supermarket' do
       publix = Supermarket.create!(name: "Publix", location: "East Atlanta Village")
 
       john = Customer.create!(name: "John Smith")
@@ -19,7 +14,12 @@ RSpec.describe Supermarket, type: :model do
       peter_item = CustomerItem.create!(customer_id: peter.id, item_id: bread.id)
       john_item = CustomerItem.create!(customer_id: john.id, item_id: bread.id)
 
-      expect(publix.distinct_customers).to eq([john, peter, lucy])
-    end
-  end
+      visit "/supermarkets/#{publix.id}"
+
+      expect(page).to have_content("Publix")
+      expect(page).to have_content("Recent Customers:")
+      expect(page).to have_content("John Smith")
+      expect(page).to have_content("Peter Jones")
+      expect(page).to have_content("Lucy Veron")
+   end
 end
