@@ -8,6 +8,8 @@ RSpec.describe 'Customer Show Page', type: :feature do
       @item_1 = @supermarket_1.items.create!(name: "Apple", price: 5)
       @item_2 = @supermarket_1.items.create!(name: "Banana", price: 2)
       @item_3 = @supermarket_1.items.create!(name: "Orange", price: 3)
+      @item_4 = @supermarket_1.items.create!(name: "Onion", price: 1)
+      @item_5 = @supermarket_1.items.create!(name: "Bell Pepper", price: 4)
       @customer_item_1 = CustomerItem.create!(customer_id: @customer_1.id, item_id: @item_1.id)
       @customer_item_2 = CustomerItem.create!(customer_id: @customer_1.id, item_id: @item_2.id)
       @customer_item_3 = CustomerItem.create!(customer_id: @customer_1.id, item_id: @item_3.id)
@@ -35,6 +37,31 @@ RSpec.describe 'Customer Show Page', type: :feature do
       end
       within "#item-#{@item_3.id}" do
         expect(page).to have_content(@item_3.price)
+        expect(page).to have_content(@supermarket_1.name)
+      end
+    end
+
+    it 'has a form to add an item to the customer' do
+      visit "/customers/#{@customer_1.id}"
+
+      within '#add_item' do
+        expect(page).to have_content("Add Item to Customer")
+        expect(page).to have_field("item_id")
+        expect(page).to have_button("Submit")
+      end
+    end
+
+    it 'can add an item to the customer by item id number' do
+      visit "/customers/#{@customer_1.id}"
+
+      fill_in "item_id", with: "#{@item_4.id}"
+      click_on "Submit"
+
+      expect(current_path).to eq("/customers/#{@customer_1.id}")
+
+      within "#item-#{@item_4.id}" do
+        expect(page).to have_content(@item_4.name)
+        expect(page).to have_content(@item_4.price)
         expect(page).to have_content(@supermarket_1.name)
       end
     end

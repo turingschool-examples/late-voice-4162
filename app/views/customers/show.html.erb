@@ -6,4 +6,12 @@
   <h5><%= item.supermarket.name %></h5>
  </div> 
 <% end %>
+<div id="add_item">
+<h4>Add Item to Customer</h4>
+  <%= form_with url: "/customers/#{@customer.id}/add_item", method: :post, data: {turbo: false} do |f| %>
+    <%= f.label :item_id %>
+    <%= f.text_field :item_id %>
+    <%= f.submit "Submit", formmethod: :post %>
+  <% end %>
+</div>
 
