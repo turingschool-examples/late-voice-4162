@@ -3,12 +3,9 @@ class Customer < ApplicationRecord
     has_many :customer_items
     has_many :items, through: :customer_items
 
-    def add_items
-        @customer = Customer.find(params[:customer_id])
-        @item = Item.find(params[:item_id])
+    def add_items(item_id)
+        @item = Item.find(item_id)
 
-        @customer.items << @item
-        
-        redirect_to "/customers/:id"
+        self.items << item        
     end
 end
