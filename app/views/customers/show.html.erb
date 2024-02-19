@@ -7,3 +7,11 @@
       <p>Supermarket: <%= item.supermarket_name_by_item %></p>
    </div>
 <% end %>
+
+<h3>Add Item to Cart:</h3>
+<%= form_with url: "/customers/#{@customer.id}/items", method: :post do |form| %>
+   <%= form.label :item_id %>
+   <%= form.number_field :item_id %>
+
+   <%= form.submit "Add Item" %>
+<% end %>
