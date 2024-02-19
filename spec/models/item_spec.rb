@@ -27,7 +27,6 @@ RSpec.describe Item, type: :model do
       bread = Item.create!(name: "Bread", price: 5, supermarket_id: publix.id)
 
       lucy_item = CustomerItem.create!(customer_id: lucy.id, item_id: bread.id)
-
       peter_item = CustomerItem.create!(customer_id: peter.id, item_id: bread.id)
 
       expect(bread.total_times_sold).to eq(2)
