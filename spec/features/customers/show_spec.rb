@@ -73,7 +73,7 @@ RSpec.describe "Customer Show" do
      expect(current_path).to eq("/customers/#{customer_2.id}")
 
      expect(page).to have_content('Cookies')
-
+    
 
     end
 

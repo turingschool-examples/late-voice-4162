@@ -30,7 +30,7 @@ RSpec.describe Item, type: :model do
     expect(item_4.supermarket_name).to eq("Target")
   end
 
-  def customer_count
+  it "customer_count" do
     supermarket_1 = Supermarket.create!(name: "Walmart", location: " 1223 DRIVE" )
     supermarket_2 = Supermarket.create!(name: "Target", location: " 1456 BLVD" )
 
