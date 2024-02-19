@@ -5,9 +5,9 @@ RSpec.describe 'Customer Show Page', type: :feature do
     before(:each) do
       @supermarket_1 = Supermarket.create!(name: "Ralphs", location: "Over There St.")
       @customer_1 = Customer.create!(name: "Alex Long")
-      @item_1 = @supermarket_1.items.create!(name: "Apple", price: 5.99)
-      @item_2 = @supermarket_1.items.create!(name: "Banana", price: 2.99)
-      @item_3 = @supermarket_1.items.create!(name: "Orange", price: 3.99)
+      @item_1 = @supermarket_1.items.create!(name: "Apple", price: 5)
+      @item_2 = @supermarket_1.items.create!(name: "Banana", price: 2)
+      @item_3 = @supermarket_1.items.create!(name: "Orange", price: 3)
       @customer_item_1 = CustomerItem.create!(customer_id: @customer_1.id, item_id: @item_1.id)
       @customer_item_2 = CustomerItem.create!(customer_id: @customer_1.id, item_id: @item_2.id)
       @customer_item_3 = CustomerItem.create!(customer_id: @customer_1.id, item_id: @item_3.id)
