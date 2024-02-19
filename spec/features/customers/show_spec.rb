@@ -17,12 +17,11 @@ RSpec.describe "Customer Show Page", type: :feature do
     end
 
     it "displays customer's name" do
-      save_and_open_page
       expect(page).to have_content("Susan")
     end
 
     describe "customer item list" do
-      it "item's information" do
+      it "shows item's information" do
         within "#item-#{item_1.id}" do
           expect(page).to have_content("milk: $4 from Walmart")
         end
@@ -32,6 +31,21 @@ RSpec.describe "Customer Show Page", type: :feature do
         end
         within "#item-#{item_3.id}" do
           expect(page).to have_content("pizza: $6 from Target")
+        end
+      end
+
+      describe "adding item to list" do
+        it "shows form to add an item" do
+          expect(page).to have_content("Item ID")
+        end
+
+        it "Add Item form adds that item to the customer's show page" do
+          item_5 = supermarket_2.items.create!(name: "bread", price: 3)
+          fill_in :item_id, with: item_5.id
+          click_on "Submit"
+
+          expect(page).to have_content("bread: $3 from Target")
+          expect(current_path).to eq("/customers/#{customer_1.id}")
         end
       end
     end

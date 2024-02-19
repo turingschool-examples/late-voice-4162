@@ -8,3 +8,10 @@
     </div>
   <% end %>
 </ul>
+
+<h3>Add Item</h3>
+<%= form_with url: "/customers/#{@customer.id}/items", method: :post, local: true, data: {turbo: false} do |form|%>
+  <%= form.label :item_id, "Item ID" %>
+  <%= form.number_field :item_id %><br>
+  <%= form.submit "Submit" %>
+<% end %>
