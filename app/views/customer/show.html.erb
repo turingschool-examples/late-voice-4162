@@ -1,5 +1,10 @@
 <h1>Customer Details</h1>
 <h3>Name: <%= @customer.name %></h3>
+<%= form_with url: "/customer", method: "post" do |f| %>
+    <%= f.label :item_id, "Add Item" %>
+    <%= f.text_field :item_id, placeholder: "Enter item ID" %>
+    <%= f.submit "Add Item" %>
+<% end %>
 
 <h2>Purchased Items:</h2>
 <div id="customer-<%= @customer.id %>">
