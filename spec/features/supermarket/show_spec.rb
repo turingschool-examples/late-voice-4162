@@ -12,7 +12,7 @@ RSpec.describe "supermarket Show page" do
 
       lucy_item = CustomerItem.create!(customer_id: lucy.id, item_id: bread.id)
       peter_item = CustomerItem.create!(customer_id: peter.id, item_id: bread.id)
-      john_item = CustomerItem.create!(customer_id: peter.id, item_id: bread.id)
+      john_item = CustomerItem.create!(customer_id: john.id, item_id: bread.id)
 
       visit "/supermarkets/#{publix.id}"
 
