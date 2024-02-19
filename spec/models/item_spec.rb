@@ -41,7 +41,6 @@ RSpec.describe Item, type: :model do
         expect(@mushroom.purchase_count).to eq(1)
         expect(@banana.purchase_count).to eq(1)
         expect(@kiwi.purchase_count).to eq(2)
-        
       end
     end
   end
