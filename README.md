@@ -14,7 +14,7 @@ RSpec and Shoulda-Matchers have been installed and set up.
 6. `rails db:{drop,create,migrate,seed}`
 
 When you run `bundle exec rspec` you should have 2 passing tests.
-
+ 
 ## Instructions
 
 * Work on this assessment independently. DO NOT discuss with anyone.
