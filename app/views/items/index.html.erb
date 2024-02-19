@@ -1,0 +1,10 @@
+<h1>All Items</h1>
+
+<h3><% @items.each do |item| %></h3>
+   <div id="item-<%= item.id %>">
+      <h4>Name: <%= item.name %></h4>
+      <p>Price: $<%= item.price %>.00</p>
+      <p>Supermarket: <%= item.supermarket_name_by_item %></p>
+      <p>Total times sold: <%= item.total_times_sold %></p>
+   </div>
+<% end %>

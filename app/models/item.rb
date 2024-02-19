@@ -6,4 +6,8 @@ class Item < ApplicationRecord
   def supermarket_name_by_item
     self.supermarket.name
   end
+
+  def total_times_sold
+    self.customers.count
+  end
 end
