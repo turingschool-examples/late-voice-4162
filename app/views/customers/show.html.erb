@@ -1,0 +1,12 @@
+<h1>Customer Information:</h1>
+
+<h3>Customer Name: <%= @customer.name %></h3>
+
+<h3>Items:</h3>
+<% @customer.items.each do |item| %>
+<%= item.name %>
+    <ul>
+    <li>Price: $<%= item.price %></li>
+    <li>Supermarket: <%= item.supermarket.name %></li>
+</ul>
+<% end %>
