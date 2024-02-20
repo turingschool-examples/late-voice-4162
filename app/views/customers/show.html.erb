@@ -1,0 +1,23 @@
+<h1><u>Customer Name: <%= @customer.name %></u></h1>
+
+<h2><u><%= @customer.name %>'s Items:</u></h2>
+<ul>
+  <% @customer.items.each do |item| %>
+    <section id="item-<%= item.id %>">
+      <li>Item: <%= item.name %></li>
+      <li>Price: $<%= item.price %></li>
+      <li>Supermarket: <%= item.supermarket.name %></li>
+      <br
+    </section>
+  <% end %>
+</ul>
+
+<h2><u>Add Item</u></h2>
+
+<div id="form">
+  <%= form_with(url: "/customers/#{@customer.id}/items", method: :post) do |form| %> 
+    <%= form.label :item_id, "Add an Item:" %>
+    <%= form.number_field :item_id %>
+    <%= form.submit "Submit" %>
+  <% end %>
+</div>
