@@ -1,4 +1,5 @@
 class Customer < ApplicationRecord
-  has_many :customers_items
-  has_many :items, through: :customers_items
+  has_many :customer_items
+  has_many :items, through: :customer_items
+  # has_many :supermarkets, through: :items
 end
