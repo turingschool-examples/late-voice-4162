@@ -1,0 +1,9 @@
+<h1> Customer Details:</h1>
+
+<% @items.each do |item| %>
+    <li>Name: <%= item.name %></li>
+    <li>Address: <%= item.price %></li>
+    <li>City: <%= item.supermarket.name %></li>
+    <li>Purchase count: <%= item.customer_items.count %></li>
+
+<% end %>
