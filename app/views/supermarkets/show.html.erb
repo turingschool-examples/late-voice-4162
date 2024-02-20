@@ -1,0 +1,5 @@
+<% @market.current_customers.each do |customer| %>
+  <div id="customer-<%= customer.id %>">
+    <h3><%= customer.name %></h3>
+  </div>
+<% end %>

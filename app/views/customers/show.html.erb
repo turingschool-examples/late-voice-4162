@@ -1,0 +1,16 @@
+<h1><%=@customer.name%></h1>
+
+<% @customer.items.each do |item| %>
+  <div id="item-<%= item.id %>">
+    <h3><%= item.name %></h3>
+    <p><%= item.price %></p>
+    <p><%= item.supermarket.name %></p>
+  </div>
+<% end %>
+
+<%= form_with url: "/customers/#{@customer.id}/items", method: :post, data: {turbo: false}, local: true do |f| %>
+  <%= f.label :item %>
+  <%= f.text_field :item %>
+
+  <%= f.submit "submit"%>
+<% end %>
