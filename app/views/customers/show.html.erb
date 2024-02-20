@@ -8,3 +8,10 @@
         </ul>
     </div>
 <%end%>
+
+<%= form_with(url: "/customers/#{@customer.id}/items", method: :post ) do |f| %>
+        <%= f.label :item_id %>
+        <%= f.number_field :item_id %>
+    
+        <%= f.submit 'Add Item' %>
+<% end %>
