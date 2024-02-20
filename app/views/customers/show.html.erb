@@ -1,0 +1,11 @@
+Name: <%= @customer.name %>
+
+<% @customer.items.each do |item| %>
+<div id=<%="item-#{item.name}"%>>
+  <ul>Item: <%= item.name%></ul>
+  <ul>Price: $<%= item.price%></ul>
+  <ul>From Supermarket: <%= item.supermarket.name%></ul>
+</div>
+<% end %>
+
+Add Item
