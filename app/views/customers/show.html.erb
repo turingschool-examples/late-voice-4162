@@ -7,3 +7,10 @@
     <p><%= item.supermarket.name %></p>
   </div>
 <% end %>
+
+<%= form_with url: "/customers/#{@customer.id}/items", method: :post, data: {turbo: false}, local: true do |f| %>
+  <%= f.label :item %>
+  <%= f.text_field :item %>
+
+  <%= f.submit "submit"%>
+<% end %>

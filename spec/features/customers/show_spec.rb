@@ -7,8 +7,9 @@ RSpec.describe 'customer show', type: :feature do
 
       @sup_1 = Supermarket.create!(name: "gen name", location: "mn")
 
-      @item_1 = @sup_1.items.create(name: "item name", price: 1)
+      @item_1 = @sup_1.items.create(name: "item name 1", price: 1)
       @item_2 = @sup_1.items.create(name: "item name 2", price: 1)
+      @item_3 = @sup_1.items.create(name: "item name 3", price: 1)
 
       CustomerItem.create!(item_id: @item_1.id, customer_id: @cust_1.id)
       CustomerItem.create!(item_id: @item_2.id, customer_id: @cust_1.id)
@@ -36,7 +37,23 @@ RSpec.describe 'customer show', type: :feature do
         expect(page).to have_content(@item_2.price)
         expect(page).to have_content(@item_2.supermarket.name)
       end
+    end
 
+    # Story 2
+    it "can add a item to a customer" do 
+      # When I visit a customer's show page,
+      visit "/customers/#{@cust_1.id}"
+      # Then I see a form to add an item to this customer. 
+      expect(page).to have_field("item")
+      # When I fill in a field with the id of an existing item, 
+      fill_in "item", with: @item_3.id
+      # And I click submit,
+      click_button("submit")
+      # Then I am redirected back to the customer's show page, 
+      expect(current_path).to eq("/customers/#{@cust_1.id}")
+      # And I see the item now listed under this customer's items.
+      expect(page).to have_content(@item_3.name)
+      # (You do not have to test for a sad path, for example if the ID submitted is not an existing item)
     end
   end
 end
